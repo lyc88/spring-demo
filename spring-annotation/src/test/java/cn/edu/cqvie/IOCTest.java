@@ -1,6 +1,7 @@
 package cn.edu.cqvie;
 
 import cn.edu.cqvie.config.MainConfig;
+import cn.edu.cqvie.config.MainConfig2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,5 +17,14 @@ public class IOCTest {
 
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         Stream.of(beanDefinitionNames).forEach(System.out::println);
+    }
+
+    @Test
+    public void test02() {
+        ApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(MainConfig2.class);
+
+        Object bean = applicationContext.getBean("person");
+        System.out.println(bean);
     }
 }

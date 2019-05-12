@@ -14,44 +14,6 @@ import org.springframework.stereotype.Service;
  * @author ZHENG SHAOHONG
  */
 @Configuration
-/*
-@ComponentScan(value = "cn.edu.cqvie",
-        excludeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {
-                        Controller.class,
-                        Service.class
-                })
-        },
-        includeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {
-                        Repository.class
-                })
-        })*/
-/*
-@ComponentScans(value = {
-        @ComponentScan(value = "cn.edu.cqvie",
-                excludeFilters = {
-                        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {
-                                Controller.class,
-                                Service.class
-                        })
-                },
-                includeFilters = {
-                        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {
-                                Repository.class
-                        })
-                }, useDefaultFilters = false)
-})*/
-// 自定义过滤规则
-
-@ComponentScan(value = "cn.edu.cqvie",
-        excludeFilters = {
-                //@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class}),
-                //@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class})
-                @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {
-                        MyTypeFilter.class
-                })
-        }, useDefaultFilters = false)
 public class MainConfig {
     /**
      * 给容器中注册一个Bean; 类型为返回值的类型，ID默认是用方法名作为ID
@@ -60,6 +22,6 @@ public class MainConfig {
      */
     @Bean("person")
     public Person person01() {
-        return new Person("lisi", 20);
+        return new Person("zhangsan", 25);
     }
 }
