@@ -37,4 +37,12 @@ public class Person {
                 ", age=" + age +
                 '}';
     }
+
+    public void init() {
+
+    }
+
+    public void destroy() {
+
+    }
 }

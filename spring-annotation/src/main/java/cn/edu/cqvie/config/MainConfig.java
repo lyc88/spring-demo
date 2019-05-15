@@ -1,8 +1,6 @@
 package cn.edu.cqvie.config;
 
-import cn.edu.cqvie.bean.Color;
-import cn.edu.cqvie.bean.Person;
-import cn.edu.cqvie.bean.Red;
+import cn.edu.cqvie.bean.*;
 import cn.edu.cqvie.condition.*;
 import org.springframework.context.annotation.*;
 
@@ -65,4 +63,16 @@ public class MainConfig {
     public Person person04() {
         return new Person("Avie Tevanian", 69);
     }
+
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean() {
+        return new ColorFactoryBean();
+    }
+
+    @Bean
+    public Car car() {
+        return new Car();
+    }
+
 }

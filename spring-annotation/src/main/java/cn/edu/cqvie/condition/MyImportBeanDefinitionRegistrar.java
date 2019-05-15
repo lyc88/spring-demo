@@ -17,8 +17,8 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        boolean red = registry.containsBeanDefinition("red");
-        boolean blue = registry.containsBeanDefinition("blue");
+        boolean red = registry.containsBeanDefinition("cn.edu.cqvie.bean.Red");
+        boolean blue = registry.containsBeanDefinition("cn.edu.cqvie.bean.Blue");
 
         if (red && blue) {
             RootBeanDefinition rainBow = new RootBeanDefinition(RainBow.class);

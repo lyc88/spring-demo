@@ -57,6 +57,12 @@ public class IOCTest {
     private void printBean(ApplicationContext applicationContext) {
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         Stream.of(beanDefinitionNames).forEach(System.out::println);
+
+        Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
+        System.out.println(colorFactoryBean.getClass());
+
+        Object cfb = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(cfb.getClass());
     }
 
 
