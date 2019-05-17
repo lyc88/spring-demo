@@ -1,6 +1,5 @@
 package cn.edu.cqvie.bean;
 
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.FactoryBean;
  */
 public class ColorFactoryBean implements FactoryBean<Color> {
 
+	//private Color
     /**
      * 返回一个Color对象，这个对象会添加到容器中
      *
@@ -18,7 +18,8 @@ public class ColorFactoryBean implements FactoryBean<Color> {
      */
     @Override
     public Color getObject() throws Exception {
-        return new Color();
+//        return new Color();
+    	return new Color(null);
     }
 
     @Override

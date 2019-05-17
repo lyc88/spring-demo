@@ -1,8 +1,22 @@
 package cn.edu.cqvie.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
 
-    public Car() {
+	private String lable = "Audi";
+	
+	
+    public String getLable() {
+		return lable;
+	}
+
+	public void setLable(String lable) {
+		this.lable = lable;
+	}
+
+	public Car() {
         System.out.println("car constructor ...");
     }
 
@@ -14,8 +28,10 @@ public class Car {
         System.out.println("car ... destroy ...");
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+	@Override
+	public String toString() {
+		return "Car [lable=" + lable + "]";
+	}
+
+
 }

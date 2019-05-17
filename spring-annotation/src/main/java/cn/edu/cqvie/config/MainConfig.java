@@ -16,10 +16,10 @@ import org.springframework.context.annotation.*;
 public class MainConfig {
 
 
-    @Bean
-    public Color color() {
-        return new Color();
-    }
+//    @Bean
+//    public Color color() {
+//        return new Color();
+//    }
 
     /**
      * 给容器中注册一个Bean; 类型为返回值的类型，ID默认是用方法名作为ID
