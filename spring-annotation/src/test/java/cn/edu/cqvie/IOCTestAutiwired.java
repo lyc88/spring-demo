@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import cn.edu.cqvie.bean.Boss;
 import cn.edu.cqvie.bean.Car;
 import cn.edu.cqvie.bean.Color;
+import cn.edu.cqvie.bean.Red;
 import cn.edu.cqvie.config.MainConfigOfAutowired;
 
 public class IOCTestAutiwired {
@@ -31,6 +32,9 @@ public class IOCTestAutiwired {
 		
 		System.out.println(color.getCar());
 		System.out.println(car);
+		
+		Red red = applicationContext.getBean(Red.class);
+		System.out.println(red);
 	}
 
 }

@@ -20,14 +20,34 @@
 
 		<spring.version>5.1.7.RELEASE</spring.version>
 		<inject.version>1</inject.version>
+		<c3p0.version>0.9.5.4</c3p0.version>
+		<mysql-connector.version>8.0.16</mysql-connector.version>
 		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.mchange</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${c3p0.version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 
