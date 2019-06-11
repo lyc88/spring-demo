@@ -12,7 +12,7 @@ public class MainConfigOfAOPTest {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
 
         MathCalculator mathCalculator = context.getBean(MathCalculator.class);
-        mathCalculator.div(1, 0);
+        mathCalculator.div(1, 1);
 
         context.close();
     }
