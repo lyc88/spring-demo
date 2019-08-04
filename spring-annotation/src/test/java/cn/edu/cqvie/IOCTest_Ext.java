@@ -7,6 +7,7 @@ import cn.edu.cqvie.config.MainConfig2;
 import cn.edu.cqvie.ext.ExtConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -20,6 +21,9 @@ public class IOCTest_Ext {
         AnnotationConfigApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(ExtConfig.class);
 
+        //发布事件
+        applicationContext.publishEvent(new ApplicationEvent(new String("我发布的事件")) {
+        });
         applicationContext.close();
     }
 
