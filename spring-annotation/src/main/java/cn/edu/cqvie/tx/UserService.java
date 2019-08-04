@@ -9,7 +9,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    //@Transactional
+    @Transactional
     public void insertUser() {
         userDao.insert();
         System.out.println("插入完成 。。。。");
