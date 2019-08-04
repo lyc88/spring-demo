@@ -36,6 +36,9 @@ import org.springframework.context.annotation.Configuration;
  *       监听 ApplicationListener 及其下面的事件；
  * 步骤：
  *   1）、写一个监听器（ApplicationListener的实现类）来监听某个事件（ApplicationEvent及其子类）。
+ *     @EventListener
+ *       原理： 使用 EventListenerMethodProcessor 处理器来解析方法上的 @EventListener
+ *
  *   2）、吧监听器加入容器中。
  *   3）、容器中有现骨干事件的发布，我们就能监听到这个事件。
  *       ContextRefreshedEvent： 容器刷新完成（所有Bean都完全创建）会发布这个事件
@@ -78,6 +81,13 @@ import org.springframework.context.annotation.Configuration;
  *                String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);
  *                //讲Listener注册到ApplicationEventMulticaster派发器中
  *                getApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);
+ *
+ *   SmartInitializingSingleton 原理：-> afterSingletonsInstantiated()
+ *      1）、IOC 容器创建对象并 refresh()；
+ *      2）、finishBeanFactoryInitialization(beanFactory); 初始化剩下的单实例Bean
+ *          1)、先创建所有的单实例Bean； getBean()
+ *          2)、所有创建好的单实例Bean；判断是否是 SmartInitializingSingleton 类型如果是，就调用
+ *              smartSingleton.afterSingletonsInstantiated();
  *
  *
  */
