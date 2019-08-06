@@ -169,4 +169,23 @@ Spring 容器的refresh(); [创建、刷新]
     5）、LiveBeansView.registerApplicationContext(this);
 
 
-===================================  BeanFactory 的创建和预准备工作 ===================================
+===================================  总结 ===================================
+1）、Spring 容器在启动时候，会先保存所有注册进来的Bean定义信息
+   1）、xml 注册bean <bean>
+   2)、 注解注册Bean； @Service ， @Component @Bean
+
+2）、Spring 容器会在合适的时机创建这些Bean
+   1）、用到这个Bean 的时候 通过getBean 创建Bean
+   2）、统一创建剩下所有Bean的方式 finishBeanFactoryInitialization（）
+
+3）、后置处理器
+     每一个Bean创建完成，都会使用各种后置处理器，来增强Bean的功能
+     AutowiredAnnotationBeanPostProcessor :处理自动注入功能
+     AnnotationAwareAspectJAutoProxyCreator: 来做AOP功能
+     等等
+     增强的功能注解
+     AsyncAnnotationBeanPostProcessor
+
+4）、事件驱动模式
+     ApplicationListener 事件监听
+     ApplicationEventMulticaster 事件派发
