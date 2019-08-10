@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.*;
         @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Controller.class)
 })
 @EnableWebMvc
-public class AppConfig extends WebMvcConfigurerAdapter {
+public class AppConfig implements WebMvcConfigurer {
 
     /**
      * 视图解析器
