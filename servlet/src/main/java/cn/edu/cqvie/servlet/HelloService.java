@@ -12,7 +12,21 @@ public class HelloService extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(Thread.currentThread() + " start ...");
+
+        try {
+            sayHello();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         req.getRequestDispatcher("index.jsp").forward(req, resp);
+        System.out.println(Thread.currentThread() + " end ...");
+
     }
 
+    public void sayHello() throws Exception {
+        System.out.println(Thread.currentThread() + " processing ...");
+        Thread.sleep(2000);
+    }
 }
