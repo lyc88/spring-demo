@@ -20,7 +20,8 @@ public class HelloService extends HttpServlet {
             e.printStackTrace();
         }
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        //req.getRequestDispatcher("index.jsp").forward(req, resp);
+        resp.getWriter().println("say hello! ");
         System.out.println(Thread.currentThread() + " end ...");
 
     }
