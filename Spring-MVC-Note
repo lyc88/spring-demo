@@ -1,0 +1,19 @@
+1、在WEB容器启动的时候，会扫描每一个JAR包下的META-INF/services/javax.servlet.ServletContainerInitializer
+2、加载文件指定类
+3、Spring 的应用会加载感兴趣的 WebApplicationInitializer 接口下的所有组件；
+4、并为WebApplicationInitializer 组件创建对象 （组件不是接口、也不是抽象类）
+   1）、AbstractContextLoaderInitializer 创建根容器 createRootApplicationContext()
+   2）、AbstractDispatcherServletInitializer
+       创建一个 WEB 的IOC 容器 createServletApplicationContext();
+       创建了一个  DispatcherServlet createDispatcherServlet（）；
+       将创建的 DispatcherServlet 添加到 ServletContext 中
+               getServletMappings()
+   3)、 AbstractAnnotationConfigDispatcherServletInitializer 注解配置的 DispatcherServlet 初始化器
+       创建根容器 createRootApplicationContext()
+               getRootConfigClasses() 传入一个而配置类
+       创建WEB的IOC容器：createServletApplicationContext()
+               获取配置类： getServletConfigClasses()
+
+总结：
+   以注解的方式启动Spring MVC 继承AbstractAnnotationConfigDispatcherServletInitializer
+实现抽象方法制定DispatcherServlet的配置信息
