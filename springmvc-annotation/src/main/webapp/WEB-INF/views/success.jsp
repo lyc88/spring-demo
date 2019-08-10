@@ -1,4 +1,3 @@
-</html>
 <%--
   Created by IntelliJ IDEA.
   User: zhengsh
@@ -12,7 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    
-<img src="A.jpg">
+
 </body>
 </html>

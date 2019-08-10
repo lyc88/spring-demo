@@ -17,3 +17,10 @@
 总结：
    以注解的方式启动Spring MVC 继承AbstractAnnotationConfigDispatcherServletInitializer
 实现抽象方法制定DispatcherServlet的配置信息
+
+
+============================================================
+定制Spring MVC
+1、开启@EnableWebMvc 启动Spring MVC 的定制功能
+2、配置组件（视图解析器、视图映射、静态资源映射、拦截器等）
+3、

@@ -21,4 +21,8 @@ public class HelloController {
         return sayHello;
     }
 
+    @RequestMapping(value = "/suc")
+    public String suc() {
+        return "/success";
+    }
 }
