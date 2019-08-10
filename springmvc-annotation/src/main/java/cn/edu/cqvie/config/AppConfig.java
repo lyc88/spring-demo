@@ -1,5 +1,6 @@
 package cn.edu.cqvie.config;
 
+import cn.edu.cqvie.controller.MyFirstInterceptor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
@@ -34,5 +35,17 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
+    }
+
+    /**
+     * 拦截器
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        //super.addInterceptors(registry);
+
+        registry.addInterceptor(new MyFirstInterceptor()).addPathPatterns("/**");
+
     }
 }
