@@ -18,14 +18,14 @@ public class AsyncController {
     @ResponseBody
     public DeferredResult<Object> quotes() {
         DeferredResult<Object> deferredResult = new DeferredResult<Object>(
-                3000L, "create order error"
+                30000L, "create order error"
         );
 
         DeferredResultService.save(deferredResult);
         return deferredResult;
     }
 
-    @RequestMapping("/crate")
+    @RequestMapping("/create")
     @ResponseBody
     public String create() {
         String order = UUID.randomUUID().toString().replace("-", "").toLowerCase();
