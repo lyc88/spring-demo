@@ -1,14 +1,39 @@
 package cn.edu.cqvie.controller;
 
+import cn.edu.cqvie.service.DeferredResultService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.async.DeferredResult;
 
+import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Controller
 public class AsyncController {
+
+    @RequestMapping("/createOrder")
+    @ResponseBody
+    public DeferredResult<Object> quotes() {
+        DeferredResult<Object> deferredResult = new DeferredResult<Object>(
+                3000L, "create order error"
+        );
+
+        DeferredResultService.save(deferredResult);
+        return deferredResult;
+    }
+
+    @RequestMapping("/crate")
+    @ResponseBody
+    public String create() {
+        String order = UUID.randomUUID().toString().replace("-", "").toLowerCase();
+        DeferredResult<Object> objectDeferredResult = DeferredResultService.get();
+        objectDeferredResult.setResult(order);
+        return "success";
+    }
+
 
     /**
      * 1、控制器返回 Callable
@@ -16,24 +41,25 @@ public class AsyncController {
      * 3、DispatcherServlet 和所有的Filter 退出Web容器的线程。 但是 response 保持打开状态
      * 4、Callable 返回，Spring MVC 将请求重新派发给容器，恢复之前的处理
      * 5、根据 Callable 返回的结果， Spring MVC 继续进行视图渲染流程等，（从收请求-视图渲染）
-     *
+     * <p>
      * preHandle ....
      * main thread start?Thread[http-nio-8087-exec-4,5,main] ===>1565464301535
      * main thread end?Thread[http-nio-8087-exec-4,5,main] ===>1565464301538
      * =================  DispatcherServlet 以及所有的Filter 退出 =================
-     *
+     * <p>
      * =================  等待执行 Callable ===========================
      * callable thread start?Thread[MvcAsync1,5,main] ===>1565464301552
      * callable thread end?Thread[MvcAsync1,5,main] ===>1565464301552
      * =================   Callable 执行完毕 ===========================
-     *
+     * <p>
      * preHandle ....  （/springmvc_annotation_war/async01）
      * postHandle ....  （Callable 的之前返回值就是目标方法的返回值）
      * afterCompletion ....
-     *
+     * <p>
      * 异步拦截器：
-     *    1、以原生的  API AsyncListener
-     *    2、Spring MVC 实现 AsyncHandlerInterceptor
+     * 1、以原生的  API AsyncListener
+     * 2、Spring MVC 实现 AsyncHandlerInterceptor
+     *
      * @return
      */
     @ResponseBody
