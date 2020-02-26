@@ -22,7 +22,7 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 
-		<spring.version>5.1.7.RELEASE</spring.version>
+		<spring.version>5.2.4.RELEASE</spring.version>
 		<inject.version>1</inject.version>
 		<c3p0.version>0.9.5.4</c3p0.version>
 		<mysql-connector.version>8.0.16</mysql-connector.version>
