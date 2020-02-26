@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springmvc-annotation</artifactId>
+    <artifactId>spring-mvc-annotation</artifactId>
     <packaging>war</packaging>
 
-    <name>springmvc-annotation</name>
+    <name>spring-mvc-annotation</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,7 +43,7 @@
     </dependencies>
 
     <build>
-        <finalName>springmvc-annotation</finalName>
+        <finalName>spring-mvc-annotation</finalName>
 
         <plugins>
             <plugin>
