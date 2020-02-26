@@ -9,11 +9,13 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<modules>
-		<module>spring-xml</module>
+		<module>servlet</module>
+
 		<module>spring-annotation</module>
-        <module>servlet</module>
-        <module>springmvc-annotation</module>
-    </modules>
+		<module>spring-boot</module>
+        <module>spring-mvc-annotation</module>
+		<module>spring-xml</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
